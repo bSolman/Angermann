@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="theHeader">
+    <div class="item sidebar" id="mySidebar">
+        <a href="#link" class="closebtn" onclick="closeNav()">x</a>
+        <a th:href="@{/mainPage}">Home</a>
+        <a href="#aLInk">Beer types</a>
+        <a href="#aLink">About</a>
+    </div>
+    <div id="main" class="item sidebarOpen">
+        <button class="item openbtn" onclick="openNav()">☰ Menu</button>
+    </div>
+    <div class="item headerText">
+        <a class="theText">Beers are Great</a>
+    </div>
+</header>
+</body>
+</html>

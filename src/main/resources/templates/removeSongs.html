@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+<head>
+    <meta charset="UTF-8">
+    <script src="/js/nav.js"></script>
+    <link href="css/uploadS.css?version=1" rel="stylesheet" type="text/css">
+    <link href="css/navi.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angermann</title>
+</head>
+<body>
+<nav th:replace="fragments/nav :: nav">
+
+</nav>
+<div class="wrapper">
+    <img src="img/lagetSmall.png" height="200" width="200" alt="Laget logo">
+    <p id="infolo" th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+    <section id="lowerForm" class="form2">
+        <form class="innerWrapper" method="post" th:action="@{/removeSong}" enctype="multipart/form-data" >
+            <select name="songId" id="songId">
+                <option th:each="song: ${songs}" th:value="${song.id}" th:text="${song.name}"></option>
+            </select>
+            <div class="inputDiv">
+                <input type="submit" value="Ta bort" class="removeBtn">
+            </div>
+        </form>
+    </section>
+</div>
+</body>
+</html>

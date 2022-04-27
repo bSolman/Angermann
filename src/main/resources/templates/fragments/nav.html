@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<nav class="navbar" id="myNavbar">
+    <ul>
+        <div class="dropdown" id="dropdown">
+            <button class="dropbtn" onclick="showMenu()">Menu
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="dropdown-content">
+                <a th:href="@{/landingPage}" class="navLink" id="link1" onclick="vibrate()">Hem</a>
+                <a th:href="@{/uploadSong}" class="navLink">Lägg till sång</a>
+                <a th:href="@{/editChoiceSong}" class="navLink">Redigera Sång</a>
+                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a th:href="@{/removeSongs}" class="navLink">Ta bort sång</a>
+                    <a th:href="@{/manageUserView}" class="navLink">Hantera användare</a>
+                </div>
+                <a th:href="@{/logout}" class="navLink">Logga ut</a>
+            </div>
+        </div>
+
+    </ul>
+</nav>
+</body>
+</html>

@@ -1,0 +1,177 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-color: #507DBC;
+    background-image: linear-gradient(#DAE3E5, #507DBC);
+}
+
+h3 {
+    margin: 0 0;
+}
+
+img {
+    margin: 0 auto;
+}
+
+.form1, .inputDataFile {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
+
+.wrapper {
+    width: 300px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.form2{
+    margin-bottom: 20px;
+}
+
+.innerWrapper {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.inputDivTop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 5px;
+}
+
+.inputDiv {
+    padding: 5px;
+}
+
+input{
+    height: 3em;
+    border: none;
+}
+
+input[type=text], input[type=password], .borderDesign, select {
+    width: 100%;
+    margin: 5px auto;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #507dbc;
+    box-sizing: border-box;
+}
+
+input[type=text]:active, select:active{
+    outline-color: #507DBC;
+}
+
+select option:checked{
+    background-color: #507DBC;
+}
+
+
+input[type=submit]{
+    width: 30%;
+    border-radius: 5px;
+    color: black;
+    font-weight: 800;
+    background-color: #F5F5F5;
+    position: relative;
+    box-shadow: 0px 0px 5px 0px #507dbc;
+}
+
+input[type=submit]:active{
+    background-color: #D62246;
+}
+
+
+input[type=file]{
+    margin-top: 25px;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.checkbox{
+    margin: auto 0;
+}
+.dataFile {
+    margin: auto 0 auto auto;
+}
+
+.labelUpload{
+    background-color: #F5F5F5;
+    margin-top: 1em;
+    border-radius: 10px;
+    color: black;
+    display: inline-block;
+    font-weight: 700;
+    height: 2.05rem;
+    line-height: 2.05rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-shadow: 0 0 5px 0 #507dbc;
+    position: relative;
+    top: -0.03em;
+}
+
+.checkboxContainer {
+    font-weight: 700;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    color: black;
+    box-shadow: 0px 0 5px 0px #507dbc;
+    padding: 8px;
+    top: -0.5em;
+    position: relative;
+}
+
+.addBtn {
+    right: -205px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.removeBtn {
+    right: -203px;
+}
+
+input[type=checkbox]{
+    appearance: none;
+}
+
+select{
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    margin: 5px auto;
+    padding: 10px;
+    font-weight: 800;
+    background-color: #F5F5F5;
+    width: 300px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 850;
+    box-shadow: 0px 0px 5px 0px #507dbc;
+}
+
+textarea{
+    width: 100%;
+    resize: none;
+    margin-top: 1.5em;
+    border: none;
+    box-shadow: 0px 0px 5px 0px #507dbc;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/js/nav.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="css/mainPage.css?version=4" rel="stylesheet" type="text/css">
+    <link href="/css/navi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<nav th:replace="fragments/nav :: nav">
+
+</nav>
+<section class="header">
+    <img class="headerImg" src="/img/lagetSmall.png"  height="200" width="200" alt="Laget logo">
+</section>
+
+<form autocomplete="off" th:action="@{/getSongByName}" id="songSelectForm" method="post" enctype="multipart/form-data">
+    <div class="autocomplete">
+        <input id="myInput" type="text" name="name" placeholder="Sök sång">
+    </div>
+    <input type="submit" value="search">
+</form>
+
+<section class="songCategorySection">
+    <div class="categoryDiv" th:each="cate: ${categories}">
+        <a class="categories" th:classappend="${cate.category}" th:href="@{/categoryContent(id=${cate.category})}"><p th:id="${cate.category}" th:text="${cate.category}"></p></a>
+    </div>
+</section>
+
+</body>
+<script src="js/searchBar.js" type="text/javascript"></script>
+<script type="text/javascript" th:inline="javascript">
+    let songs = [[${songList}]];
+    autocomplete(document.getElementById("myInput"), songs);
+</script>
+</html>

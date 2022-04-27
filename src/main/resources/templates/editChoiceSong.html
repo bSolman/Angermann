@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/js/uploadSong.js"></script>
+    <script src="/js/nav.js"></script>
+    <link href="css/navi.css" rel="stylesheet" type="text/css">
+    <link href="css/uploadS.css?version=1" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angermann</title>
+</head>
+<body>
+<nav th:replace="fragments/nav :: nav">
+
+</nav>
+<div class="wrapper">
+    <img src="img/lagetSmall.png" height="200" width="200" alt="Laget logo">
+    <p id="infolo" th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+    <section id="upperForm" class="form2">
+        <form class="innerWrapper" method="post" th:action="@{/editSong}" id="sendForm" enctype="multipart/form-data">
+            <div class="inputDiv">
+                <select name="songName" id="songName">
+                    <option th:each="song: ${songs}" th:value="${song.name}" th:text="${song.name}"></option>
+                </select>
+            </div>
+            <div class="inputDivBtn">
+                <input type="submit" class="addBtn" value="Välj">
+            </div>
+        </form>
+    </section>
+</div>
+</body>
+</html>

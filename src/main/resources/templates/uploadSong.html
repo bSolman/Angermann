@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/js/uploadSong.js"></script>
+    <script src="/js/nav.js"></script>
+    <link href="css/navi.css" rel="stylesheet" type="text/css">
+    <link href="css/uploadS.css?version=1" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angermann</title>
+</head>
+<body>
+<nav th:replace="fragments/nav :: nav">
+
+</nav>
+<div class="wrapper">
+    <img src="img/lagetSmall.png" height="200" width="200" alt="Laget logo">
+    <p id="infolo" th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+    <section id="upperForm" class="form2">
+        <form class="innerWrapper" method="post" th:action="@{/upload}" id="sendForm" enctype="multipart/form-data">
+            <div class="inputDivTop">
+                <div class="checkbox">
+                    <label class="checkboxContainer" id="swapUpload" for="checkBoxSong">Ladda upp fil
+                        <input type="checkbox" id="checkBoxSong" value="checked" onclick="alterInput()">
+                        <span class="checkBoxSpan"></span>
+                    </label>
+                </div>
+                <div id="inputFile" class="inputDataFile">
+                    <label for="songInput" class="labelUpload">Välj fil</label>
+                    <input name="song" id="songInput" type="file" accept=".docx, .txt">
+                </div>
+            </div>
+            <div class="inputDiv">
+                <div id="inputText" class="inputData">
+                    <textarea name="theSong" rows="10" placeholder="Skriv din song eller välj ladda upp fil!"></textarea>
+                </div>
+            </div>
+            <div class="inputDiv">
+                <select name="songFor" id="songFor">
+                    <option th:each="category: ${songFor}" th:value="${category.category}" th:text="${category.category}"></option>
+                </select>
+            </div>
+            <div class="inputDiv">
+                <input type="text" placeholder="Song namn" id="name" name="name">
+            </div>
+            <div class="inputDiv">
+                <input type="text" placeholder="Melodi" id="harmony" name="harmony">
+            </div>
+            <input type="hidden" name="author" value="James">
+            <div class="inputDivBtn">
+                <input type="submit" class="addBtn" value="Ladda upp">
+            </div>
+        </form>
+    </section>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.lettering.js"></script>
+    <link href="css/index.css?version=4" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="grid">
+    <section class="animation">
+        <div class="artDiv">
+            <p class="wordArt">AngermannalagetS</p>
+            <script>
+                $(document).ready(function (){
+                    $(".wordArt").lettering();
+                });
+            </script>
+            <p class="subTitle">inofficiella sångbok</p>
+        </div>
+        <img src="img/beaver.png" alt="en bäver">
+    </section>
+
+    <section class="loginForm">
+            <form method="post" th:action="@{/login}">
+                <div class="formDiv">
+                    <div class="gridItem">
+                        <label> Login Name
+                            <input type="text" name="username">
+                        </label>
+                    </div>
+                    <div class="gridItem">
+                        <label>Password
+                            <input type="password" name="password">
+                        </label>
+                    </div>
+                    <div class="gridItem3">
+                        <input type="submit" value="Logga in">
+                    </div>
+                </div>
+            </form>
+    </section>
+</div>
+</body>
+</html>

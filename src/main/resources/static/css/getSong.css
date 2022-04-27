@@ -1,0 +1,56 @@
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background-color: #DAE3E5;
+    background-image: linear-gradient(#DAE3E5, #507DBC);
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+p{
+    margin: 5px 0;
+    display: inline-block;
+}
+
+.songSection{
+    display: block;
+    width: 300px;
+    margin: auto;
+}
+
+.songAbout {
+    padding: 15px 15px 0 15px;
+    font-size: x-small;
+    border-bottom: solid 1px dimgrey;
+}
+
+.textAbout{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    font-size: small;
+}
+
+.songContent {
+    padding: 1rem 0;
+}
+
+#songText {
+    margin: 0 20px
+}
+
+#harmony {
+    grid-column: 1 / span 3;
+}
+
+#author {
+    grid-column: 4 / span 3;
+}
+
+h3 {
+    font-size: large;
+    margin: 1px 0;
+}

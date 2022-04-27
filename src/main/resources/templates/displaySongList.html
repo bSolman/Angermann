@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Angerman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/nav.js"></script>
+    <link rel="stylesheet" href="css/displaySongList.css">
+    <link rel="stylesheet" href="css/navi.css">
+
+</head>
+<body>
+<nav th:replace="fragments/nav :: nav">
+
+</nav>
+<img src="/img/lagetSmall.png" height="200" width="200" alt="Laget logo">
+<section class="songSelectSection">
+    <h3>Sånglista</h3>
+    <div class="categoryDiv" th:each="song: ${songs}">
+        <a th:href="@{/getSong(name=${song.name})}">[[${song.name}]]</a>
+    </div>
+</section>
+
+</body>
+</html>
