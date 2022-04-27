@@ -1,6 +1,5 @@
 package com.angermannalaget.angermann.controller;
 
-import ch.qos.logback.core.boolex.EvaluationException;
 import com.angermannalaget.angermann.auth.Role;
 import com.angermannalaget.angermann.auth.User;
 import com.angermannalaget.angermann.auth.UserService;
@@ -21,7 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 @Controller
 public class SongUploadController {
@@ -37,7 +35,7 @@ public class SongUploadController {
         this.userService = userService;
     }
 
-    @GetMapping("/login")
+    @GetMapping(value = {"/","/login"})
     public String login(){
         return "login";
     }

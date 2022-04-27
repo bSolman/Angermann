@@ -2,8 +2,6 @@ package com.angermannalaget.angermann.auth;
 
 import com.angermannalaget.angermann.repository.RoleRepo;
 import com.angermannalaget.angermann.repository.UserRepo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,7 +16,6 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
     private final UserRepo userRepo;
     private final RoleRepo roleRepo;
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     public UserService(UserRepo userRepo, RoleRepo roleRepo) {
         super();
