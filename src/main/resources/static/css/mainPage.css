@@ -133,7 +133,6 @@ p {
 ----------------------------*/
 
 .myButton{
-    background: lightskyblue;
     padding: 3rem;
     border-radius: .5vh;
     background: dodgerblue;
@@ -181,13 +180,14 @@ input[type=submit] {
     z-index: 99;
     /*position the autocomplete items to be the same width as the container:*/
     top: 100%;
-    left: 0;
+    left: 7px;
     right: 0;
+    width: 98%;
 }
 .autocomplete-items div {
     padding: 10px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #f1f1f1;
     border-bottom: 1px solid #d4d4d4;
 }
 .autocomplete-items div:hover {
