@@ -38,16 +38,11 @@ public class SongService {
     }
 
     public boolean removeSong(String songId){
-        try {
-            if (songRepo.getSongById(songId) == null){
-                return false;
-            }
+        if (songRepo.existsById(songId)){
+            songRepo.deleteById(songId);
+            return true;
         }
-        catch (NullPointerException e){
-            e.printStackTrace();
-        }
-        songRepo.deleteById(songId);
-        return true;
+        return false;
     }
 
     public List<Song> getAllSongs(){
@@ -73,19 +68,6 @@ public class SongService {
         return songRepo.getSongByName(name);
     }
 
-    public boolean songExist(String songName){
-        try {
-            if (songRepo.getSongByName(songName) == null){
-                return false;
-            }
-        }
-        catch (NullPointerException e){
-            e.printStackTrace();
-        }
-
-        return songRepo.getSongByName(songName).getName().equals(songName);
-    }
-
     public void updateSong(Songs songs) {
         Song s = songRepo.getSongByName(songs.getName());
         Optional<Song> currentSong = songRepo.getSongById(s.getId());
@@ -106,5 +88,9 @@ public class SongService {
 
     public boolean categoryExists(String category){
         return categoryRepo.existsByCategory(category);
+    }
+
+    public boolean songExist(String songName){
+        return songRepo.existsByName(songName);
     }
 }
