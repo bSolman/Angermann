@@ -103,4 +103,8 @@ public class SongService {
         }
 
     }
+
+    public boolean categoryExists(String category){
+        return categoryRepo.existsByCategory(category);
+    }
 }

@@ -7,14 +7,12 @@ import com.angermannalaget.angermann.model.Category;
 import com.angermannalaget.angermann.service.SongService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CMDL{ /*implements CommandLineRunner {
+public class CMDL implements CommandLineRunner {
         private static final Logger logger = LoggerFactory.getLogger(CMDL.class);
-
         private UserService userDetailsService;
         private SongService songService;
 
@@ -23,15 +21,21 @@ public class CMDL{ /*implements CommandLineRunner {
             this.songService = songService;
         }
 
-        @Override
-        public void run (String...args) throws Exception {
-            logger.info("CMD-RUNNING HOT");
+    @Override
+    public void run (String...args) throws Exception {
+        logger.info("CMD-RUNNING HOT");
+        //Adding default users
+        if(!userDetailsService.existsByUserName("bs")){
             userDetailsService.addUser(new User("bs", "8558"));
             userDetailsService.addRole(new Role("bs", "ADMIN"));
+        }
+        if (!userDetailsService.existsByUserName("ds")){
             userDetailsService.addUser(new User("ds", "8558"));
             userDetailsService.addRole(new Role("ds", "USER"));
+        }
 
-           // Adding categories
+       // Adding categories
+        if (!songService.categoryExists("A-laget")){
             songService.addCategories(new Category("A-laget"));
             songService.addCategories(new Category("Ypsilon"));
             songService.addCategories(new Category("Birkarlarna"));
@@ -40,6 +44,6 @@ public class CMDL{ /*implements CommandLineRunner {
             songService.addCategories(new Category("Jamtamot"));
             songService.addCategories(new Category("Skvadern"));
             songService.addCategories(new Category("Övriga"));
-
-    }*/
+        }
+    }
 }
