@@ -167,6 +167,9 @@ input[type=text] {
     width: 93%;
 }
 input[type=submit] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: #507DBC;
