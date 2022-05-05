@@ -12,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -171,6 +173,8 @@ public class SongUploadController {
 
     @RequestMapping("/upload")
     public String uploadDoc(@RequestParam("song") MultipartFile song, @ModelAttribute("songs") Songs songs, RedirectAttributes attributes){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        logger.info("USERNAME IS: " + auth.getName());
         if (song.isEmpty() && songs.getTheSong().isEmpty()) {
             //Skickar ett glatt meddelande till webläsaren(thymeleaf)
             attributes.addFlashAttribute("message", "Pls select a file to upload.");
@@ -203,7 +207,7 @@ public class SongUploadController {
             System.out.println("FUCK");
         }
 
-        songService.insertSong(new Song(songs.getName(), songs.getAuthor(), songContent, songs.getSongFor(), songs.getHarmony()));
+        songService.insertSong(new Song(songs.getName(), auth.getName(), songContent, songs.getSongFor(), songs.getHarmony()));
 
         return "redirect:/uploadSong";
     }

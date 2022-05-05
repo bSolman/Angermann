@@ -2,7 +2,7 @@ version: '3.7'
 services:
   angermann:
     build: .
-    image: bjornsolman/solman1980:spring-app
+    image: laget:webApp
     ports:
       - "8080:8080"
     environment:
@@ -10,7 +10,6 @@ services:
     depends_on:
       - mongodb
   mongodb:
-    build: .
     image: mongo:5.0.3
     ports:
       - "27017:27017"
