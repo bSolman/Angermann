@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
 import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -62,6 +63,16 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter{
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login");
+    }
+
+    @Bean
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+        return http
+                .requiresChannel(chanel ->
+                        chanel.anyRequest().requiresSecure())
+                .authorizeRequests(auth ->
+                        auth.anyRequest().permitAll())
+                .build();
     }
 
 }

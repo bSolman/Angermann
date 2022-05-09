@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   angermann:
-    build: .
+    build: ../../Skrivbord
     image: laget:webApp
     ports:
       - "8080:8080"
