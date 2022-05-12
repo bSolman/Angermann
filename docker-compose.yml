@@ -4,7 +4,7 @@ services:
     build: .
     image: laget:webApp
     ports:
-      - "8080:8080"
+      - "8443:8443"
     environment:
       - spring.data.mongodb.host=mongodb
     depends_on:
