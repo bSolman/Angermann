@@ -1,14 +1,32 @@
 version: '3.7'
 services:
+  nginx-server:
+    container_name: nginx-server
+    image: nginx:latest
+    restart: always
+    ports:
+    - "80:80"
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
+    depends_on:
+      - angermann
+
+#  certbot:
+#    container_name: certbot-cert
+#    image: certbot/certbot:latest
+#    volumes:
+#      - ./certbot/www/:/var/www/certbot/:rw
+
   angermann:
     build: .
     image: laget:webApp
     ports:
-      - "8443:8443"
+      - "8080:8080"
     environment:
       - spring.data.mongodb.host=mongodb
     depends_on:
       - mongodb
+
   mongodb:
     image: mongo:5.0.3
     ports:
